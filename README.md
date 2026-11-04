@@ -1,183 +1,284 @@
-# 🛡️ Fortinet Security Fabric — Dashboard Pitch Deck Ejecutivo
+<p align="center">
+  <img src="assets/banner.svg" alt="Fortinet Security Fabric — Dashboard Pitch Deck Ejecutivo" width="100%">
+</p>
 
-> Aplicación web interactiva de página única (SPA) para presentar **6 soluciones clave de Fortinet** en una exposición ejecutiva de **5 minutos** (~50 s por solución), con temporizador de pitch, fichas interactivas y exportación de contenido para pre-socialización.
+<h1 align="center">🛡️ Fortinet Security Fabric — Pitch Deck Interactivo</h1>
 
-**🌐 Demo en vivo:** https://mrcastillof.github.io/Soluciones_Fortinet_Presentacion/
+<p align="center">
+  <b>Dashboard SPA de alto impacto visual para una exposición ejecutiva de 5 minutos</b><br>
+  <i>6 soluciones clave · Temporizador de pitch · Exportación para pre-socialización</i>
+</p>
 
----
-
-## 📋 Índice
-
-- [Descripción](#-descripción)
-- [Soluciones incluidas](#-soluciones-incluidas)
-- [Funcionalidades](#-funcionalidades)
-- [Estructura de cada ficha](#-estructura-de-cada-ficha)
-- [Modo de uso — Pitch de 5 minutos](#-modo-de-uso--pitch-de-5-minutos)
-- [Exportación y pre-socialización](#-exportación-y-pre-socialización)
-- [Diseño visual (UX/UI)](#-diseño-visual-uxui)
-- [Tecnología y arquitectura](#-tecnología-y-arquitectura)
-- [Despliegue](#-despliegue)
-- [Uso local](#-uso-local)
-- [Actualizar y republicar](#-actualizar-y-republicar)
-- [Regla de información — cero alucinaciones](#-regla-de-información--cero-alucinaciones)
-- [Estructura del repositorio](#-estructura-del-repositorio)
-- [Licencia y fuentes](#-licencia-y-fuentes)
+<p align="center">
+  <a href="https://mrcastillof.github.io/Soluciones_Fortinet_Presentacion/"><img src="https://img.shields.io/badge/🌐%20Demo%20en%20vivo-Abrir%20presentación-EE2737?style=for-the-badge&logo=githubpages&logoColor=white" alt="Demo en vivo"></a>
+  <img src="https://img.shields.io/badge/📁%20Formato-Single--file%20HTML-0A0E17?style=for-the-badge&logo=html5&logoColor=E34F26" alt="Single file">
+  <img src="https://img.shields.io/badge/⚙️%20Build%20tools-Ninguno-101624?style=for-the-badge&logo=npm&logoColor=CB3837" alt="Sin build tools">
+  <img src="https://img.shields.io/badge/🧩%20Soluciones-6%20de%20alto%20valor-00A9A5?style=for-the-badge" alt="6 soluciones">
+  <img src="https://img.shields.io/badge/🎨%20Diseño-Dark%20Mode%20Premium-1A2338?style=for-the-badge" alt="Dark mode">
+  <img src="https://img.shields.io/badge/🚫%20Alucinaciones-Cero-2CE5A5?style=for-the-badge" alt="Cero alucinaciones">
+</p>
 
 ---
 
-## 📖 Descripción
+## 📣 En un minuto
 
-Este proyecto nace del compromiso **"Compromiso Presentacion.md"**: crear una SPA de alto impacto visual, moderna, elegante e intuitiva que sirva como **Dashboard / Pitch Deck interactivo** para una exposición ejecutiva de 5 minutos frente a clientes.
+> [!TIP]
+> **Un solo archivo. Cero dependencias. Listo para el cliente.** Abre `index.html`, pulsa ▶ y deja que el reloj guí tu pitch de 5 minutos mientras cada solución se enciende sola.
 
-La propuesta se articula alrededor del **Fortinet Security Fabric** — la arquitectura que conecta los componentes de seguridad para **compartir visibilidad y coordinar la protección** — enfatizando la transición de **productos aislados** a una **plataforma integrada** que combina:
-
-| Pilar | Soluciones |
-|---|---|
-| **Infraestructura** | FortiGate (NGFW), Secure SD-WAN, FortiSwitch, FortiAP |
-| **Usuarios y aplicaciones** | FortiSASE, ZTNA, FortiEDR, FortiWeb, FortiAppSec Cloud, FortiMail |
-| **Operación (SOC)** | FortiManager, FortiAnalyzer, FortiSIEM, FortiSOAR |
-
----
-
-## 🧩 Soluciones incluidas
-
-Se incluyen **6 fichas estratégicas** (las 4 definidas en el compromiso + 2 de alto valor y alta demanda comercial entre los clientes):
-
-| # | Solución | Área | Ficha estrella |
-|---|---|---|---|
-| 1 | **FortiGate (NGFW) & Secure SD-WAN** | Seguridad perimetral y conectividad | ⭐ |
-| 2 | **FortiSASE & ZTNA** | Acceso seguro y trabajo híbrido | |
-| 3 | **FortiEDR** | Protección de endpoints | |
-| 4 | **FortiManager & FortiAnalyzer** | Gestión y operaciones de seguridad (SOC) | |
-| 5 | **FortiSwitch & FortiAP** | LAN y Wi-Fi | |
-| 6 | **FortiWeb, FortiAppSec Cloud & FortiMail** | Aplicaciones y correo | |
-
-> **⭐ Ficha estrella:** la solución de **Seguridad perimetral** (la más atractiva para clientes) se distingue con badge, borde y degradado rojo propio, y encabeza tanto el Pitch Mode (Minuto 1) como los documentos exportados.
+| 🚀 Qué lo hace especial | Detalle |
+|:--|:--|
+| ⭐ **Ficha estrella** | La **Seguridad Perimetral (FortiGate & SD-WAN)** — la más atractiva comercialmente — lidera el Minuto 1 con tratamiento visual exclusivo |
+| ⏱️ **Pitch Mode** | Reloj regresivo de 05:00 que **resalta automáticamente** la ficha que toca (~50 s c/u) |
+| 📤 **Pre-socialización** | Copia el resumen ejecutivo al portapapeles o descárgalo en `.md` en un clic |
+| 🌍 **Cobertura COEM** | Selector de regiones por ficha (Central · Andina · Norte · Sur) incluido en la exportación |
+| 📱 **Responsive** | 100% adaptable a desktop, laptop y tablet |
 
 ---
 
-## ⚡ Funcionalidades
+## 🎬 Modo de uso — El pitch de 5 minutos
 
-### 🎴 Visualizador de fichas interactivas
-- Tarjetas con **arquitectura Grid** responsive (`auto-fit / minmax`)
-- Efectos **hover** con elevación y transiciones fluidas (`cubic-bezier`)
-- **Iconografía técnica SVG** propia por solución (firewall, nube, escudo, consola, red, correo)
-- **Microinteracciones**: chips de región con estado activo, pulsos y feedback visual
+<table>
+<tr><td>
 
-### ⏱️ Modo Temporizador de Exposición (Pitch Mode · 5 min)
-- **Reloj regresivo** visible de 05:00 con alerta visual en el último minuto
-- **Indicador dinámico** que resalta automáticamente la ficha correspondiente (~50 s por ficha con 6 soluciones):
-  `Minuto 1 → Solución 1 · Minuto 2 → Solución 2 · …`
-- **Controles**: ▶ Iniciar · ⏸ Pausar · ↺ Reiniciar
-- **Barra de progreso** de la exposición completa
+**1️⃣ Prepara** — Asigna regiones COEM con clic en los chips verdes de cada ficha.
 
-### 📤 Exportador de contenido (Pre-socialización)
-- **"Copiar Resumen Ejecutivo"**: copia al portapapeles el texto plano formateado, listo para pegar en correo, Slack o WhatsApp (con fallback si el portapapeles del navegador está restringido)
-- **"Descargar (.md)"**: genera y descarga `Soluciones_Fortinet_Resumen.md` con el contenido completo, tabla de ecosistema y cobertura COEM asignada
+</td><td>
 
----
+**2️⃣ Lanza** — Pulsa **▶ Iniciar** justo antes de hablar. El reloj arranca.
 
-## 🗂 Estructura de cada ficha
+</td></tr>
+<tr><td>
 
-Cada una de las 6 fichas presenta 4 respuestas visualmente divididas:
+**3️⃣ Presenta** — Cada tramo de ~50 s **enciende automáticamente** su ficha en rojo.
 
-1. **¿Qué hace?** — Definición funcional precisa basada estrictamente en la fuente oficial.
-2. **¿A quién se puede vender?** — Perfil objetivo: sucursales distribuidas, trabajo remoto, multicloud, centros de datos u operaciones SOC.
-3. **¿Cuál es su diferenciador?** — Integración nativa bajo Fortinet Security Fabric, respuesta automatizada y reducción de la complejidad frente a silos aislados.
-4. **¿En qué región/regiones de COEM posicionar?** — Selector interactivo de cobertura regional (Región Central · Andina · Norte · Sur) que el presentador asigna con un clic; las selecciones se incluyen en ambas exportaciones.
+</td><td>
 
-> **Nota de rigor:** el documento fuente no define cobertura oficial de COEM por región, por lo que las regiones **no se inventan**: se asignan manualmente y quedan reflejadas en el resumen copiado y en el Markdown descargado.
+**4️⃣ Exporta** — Antes de la reunión, **Copiar Resumen** o **Descargar .md** para enviarlo al cliente.
+
+</td></tr>
+</table>
+
+<p align="center">
+  <b>▶ Iniciar</b> · <b>⏸ Pausar</b> (para preguntas) · <b>↺ Reiniciar</b> (para repetir)
+</p>
 
 ---
 
-## 🎬 Modo de uso — Pitch de 5 minutos
+## 🧩 Las 6 soluciones de alto valor
 
-1. Abre la presentación (enlace demo o `index.html` local).
-2. Asigna las regiones COEM de cada ficha (chips verdes ✓).
-3. Pulsa **▶ Iniciar** justo antes de hablar.
-4. El reloj regresa de 05:00 y **resalta automáticamente** la ficha que toca en cada tramo de ~50 s.
-5. Usa **⏸ Pausar** para pausas o preguntas y **↺ Reiniciar** para repetir la exposición.
+<table>
+<tr>
+<th width="48">#</th>
+<th>Solución</th>
+<th>Área</th>
+<th>Por qué vende</th>
+</tr>
+<tr>
+<td align="center"><code>1</code></td>
+<td><b>⭐ FortiGate (NGFW) & Secure SD-WAN</b></td>
+<td>🔴 Seguridad perimetral y conectividad</td>
+<td><i>La puerta de entrada: inspección de tráfico + conectividad de sedes en una sola plataforma</i></td>
+</tr>
+<tr>
+<td align="center"><code>2</code></td>
+<td><b>FortiSASE & ZTNA</b></td>
+<td>🔵 Acceso seguro y trabajo híbrido</td>
+<td><i>Protege usuarios remotos verificando usuario y dispositivo, sin importar su ubicación</i></td>
+</tr>
+<tr>
+<td align="center"><code>3</code></td>
+<td><b>FortiEDR</b></td>
+<td>🟣 Protección de endpoints</td>
+<td><i>Prevención, detección y respuesta en equipos y cargas de trabajo</i></td>
+</tr>
+<tr>
+<td align="center"><code>4</code></td>
+<td><b>FortiManager & FortiAnalyzer</b></td>
+<td>🟢 Gestión y operaciones (SOC)</td>
+<td><i>Administración centralizada, correlación de eventos y respuesta automatizada</i></td>
+</tr>
+<tr>
+<td align="center"><code>5</code></td>
+<td><b>FortiSwitch & FortiAP</b></td>
+<td>🟡 LAN y Wi-Fi</td>
+<td><i>Conectividad cableada e inalámbrica integrada con la arquitectura de seguridad</i></td>
+</tr>
+<tr>
+<td align="center"><code>6</code></td>
+<td><b>FortiWeb, FortiAppSec Cloud & FortiMail</b></td>
+<td>🟠 Aplicaciones y correo</td>
+<td><i>Protección de apps web, API y correo frente a ataques</i></td>
+</tr>
+</table>
+
+> [!IMPORTANT]
+> **⭐ Ficha estrella:** la Seguridad Perimetral lleva badge, borde y degradado rojo propios, encabeza el Minuto 1 del Pitch Mode y aparece marcada como `SOLUCIÓN ESTRELLA` en todos los documentos exportados.
 
 ---
 
-## 📤 Exportación y pre-socialización
+## 🏗️ La idea central — De productos aislados a una arquitectura integrada
 
-| Botón | Resultado |
-|---|---|
-| **Copiar Resumen Ejecutivo** | Texto plano en el portapapeles: idea central + las 6 fichas con sus 4 respuestas y cobertura COEM. Ideal para enviar **antes** de la presentación. |
-| **Descargar (.md)** | Archivo `Soluciones_Fortinet_Resumen.md` con encabezados, tabla del ecosistema Fortinet, fichas completas y ⭐ marcado en la solución estrella. |
+```mermaid
+flowchart LR
+    classDef infra fill:#2A1216,stroke:#EE2737,color:#FFD9DC
+    classDef users fill:#0B2730,stroke:#00E5FF,color:#C9F8FF
+    classDef ops fill:#0E2A22,stroke:#2CE5A5,color:#CFFcef
+
+    subgraph FABRIC["🛡️ FORTINET SECURITY FABRIC — visibilidad compartida y protección coordinada"]
+        direction TB
+        subgraph A["Infraestructura"]
+            G1["FortiGate<br>NGFW"]:::infra
+            G2["Secure SD-WAN"]:::infra
+            G3["FortiSwitch<br>FortiAP"]:::infra
+        end
+        subgraph B["Usuarios y aplicaciones"]
+            U1["FortiSASE<br>ZTNA"]:::users
+            U2["FortiEDR"]:::users
+            U3["FortiWeb<br>FortiMail<br>FortiAppSec"]:::users
+        end
+        subgraph C["Operación (SOC)"]
+            O1["FortiManager<br>FortiAnalyzer"]:::ops
+            O2["FortiSIEM<br>FortiSOAR"]:::ops
+        end
+    end
+
+    SUC["🏢 Sucursales"] --> FABRIC
+    NUBE["☁️ Multicloud"] --> FABRIC
+    USU["👨‍💻 Trabajo remoto"] --> FABRIC
+    DC["🗄️ Centros de datos"] --> FABRIC
+```
+
+<p align="center">
+  <b>Infraestructura + Usuarios/Aplicaciones + Operación = una sola plataforma</b><br>
+  <i>No se limita a vender firewalls.</i>
+</p>
 
 ---
 
-## 🎨 Diseño visual (UX/UI)
+## 🗂️ Estructura de cada ficha
 
-- **Estética:** Dark Mode premium
-- **Acentos corporativos de alto contraste:**
-  - 🔴 Rojo Fortinet `#EE2737` — identidad, ficha estrella y estado activo
-  - 🔵 Cian neón `#00E5FF` — preguntas y acentos de interfaz
-  - 🟢 Verde Esmeralda `#2CE5A5` — diferenciadores e indicadores de estado
-- **Tipografía:** sistema San Francisco / Inter / Roboto (font-stack nativo, sin descargas)
-- **Responsive:** 100% adaptable a desktop, laptops y tablets (grilla autoajustable y media queries)
+Cada tarjeta responde **4 preguntas** con contenido estrictamente derivado de la fuente oficial:
+
+<table>
+<tr>
+<th width="27%">1️⃣ ¿Qué hace?</th>
+<th width="27%">2️⃣ ¿A quién se vende?</th>
+<th width="27%">3️⃣ ¿Su diferenciador?</th>
+<th width="19%">4️⃣ ¿Región COEM?</th>
+</tr>
+<tr>
+<td>Definición funcional precisa basada estrictamente en la fuente.</td>
+<td>Sucursales distribuidas · trabajo remoto · multicloud · centros de datos · operaciones SOC.</td>
+<td>Integración nativa bajo Security Fabric, respuesta automatizada y menos complejidad que los silos aislados.</td>
+<td>Selector con clic: <b>Central · Andina · Norte · Sur</b> — se exporta con la selección.</td>
+</tr>
+</table>
 
 ---
 
-## 🛠 Tecnología y arquitectura
+## ✨ Funcionalidades
 
-| Aspecto | Decisión |
-|---|---|
-| Formato | **Single-file** — todo en un único `index.html` |
-| Frontend | HTML5 + CSS3 (vanilla, sin framework) + JavaScript ES6 (sin dependencias) |
-| Build tools | **Ninguno** — sin Node.js, Webpack ni compilación |
-| Dependencias externas | Cero (funciona sin conexión tras cargarlo) |
-| Apertura | Doble clic o cualquier servidor estático |
-| Scripting de publicación | `publish.ps1` (local, **excluido del repo** vía `.gitignore`) |
+<table>
+<tr>
+<th width="50%">🎴 Visualizador de fichas</th>
+<th width="50%">⏱️ Pitch Mode</th>
+</tr>
+<tr>
+<td>
+
+- Grid responsive con **hover elevado** y transiciones `cubic-bezier`
+- **Iconografía SVG técnica** propia por solución
+- **Microinteracciones**: chips con estado ✓, pulsos y glow
+
+</td>
+<td>
+
+- Reloj regresivo **05:00** con alerta en el último minuto
+- **Resaltado automático** de la ficha activa
+- Controles **▶ ⏸ ↺** + barra de progreso total
+
+</td>
+</tr>
+<tr>
+<th width="50%">📤 Copiar Resumen Ejecutivo</th>
+<th width="50%">⬇️ Descargar .md</th>
+</tr>
+<tr>
+<td>
+
+- Texto plano listo para **correo, Slack o WhatsApp**
+- Incluye las 6 fichas + cobertura COEM asignada
+- Fallback si el portapapeles está restringido
+
+</td>
+<td>
+
+- Genera `Soluciones_Fortinet_Resumen.md`
+- Tabla del ecosistema + fichas completas
+- ⭐ Solución estrella marcada en el encabezado
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🎨 Diseño visual
+
+<p align="center">
+  <img src="https://img.shields.io/badge/🔴%20Rojo%20Fortinet-%23EE2737?style=flat-square&color=EE2737" alt="#EE2737">
+  <img src="https://img.shields.io/badge/🔵%20Cian%20neón-%2300E5FF?style=flat-square&color=00E5FF" alt="#00E5FF">
+  <img src="https://img.shields.io/badge/🟢%20Esmeralda-%232CE5A5?style=flat-square&color=2CE5A5" alt="#2CE5A5">
+  <img src="https://img.shields.io/badge/⚫%20Fondo%20dark-%230A0E17?style=flat-square&color=101624" alt="#0A0E17">
+</p>
+
+- **Estética:** Dark Mode premium con glow radial y grid sutil
+- **Tipografía:** San Francisco / Inter / Roboto (font-stack nativo, sin descargas)
+- **Responsive:** grilla autoajustable `auto-fit / minmax` + media queries
 
 ---
 
 ## 🚀 Despliegue
 
-### GitHub Pages (ya activo)
-El repo está configurado con **GitHub Pages** servido desde la rama `master`:
+> [!NOTE]
+> **GitHub Pages activo** — cada `git push` a `master` **republica solo** la web en < 1 minuto.
 
-```
-https://mrcastillof.github.io/Soluciones_Fortinet_Presentacion/
-```
+| 🌐 Producción | 📦 Repositorio |
+|:--|:--|
+| [**mrcastillof.github.io/Soluciones_Fortinet_Presentacion**](https://mrcastillof.github.io/Soluciones_Fortinet_Presentacion/) | [**MrCastilloF/Soluciones_Fortinet_Presentacion**](https://github.com/MrCastilloF/Soluciones_Fortinet_Presentacion) |
 
-Cualquier `git push` a `master` **reconstruye y republica** la web automáticamente (build típico: < 1 min).
-
-### Otros hosting
-Como es un archivo estático autocontenido, funciona igual en Netlify, Vercel, Cloudflare Pages o cualquier servidor web copiando `index.html`.
-
----
-
-## 💻 Uso local
+<details>
+<summary>💻 <b>Uso local</b> (clic para desplegar)</summary>
 
 ```bash
 git clone https://github.com/MrCastilloF/Soluciones_Fortinet_Presentacion.git
 cd Soluciones_Fortinet_Presentacion
-# Doble clic en index.html, o:
-start index.html
+start index.html          # o doble clic en index.html
 ```
+</details>
 
----
-
-## 🔄 Actualizar y republicar
+<details>
+<summary>🔄 <b>Actualizar y republicar</b> (clic para desplegar)</summary>
 
 ```bash
 git add index.html
 git commit -m "feat: descripción del cambio"
 git push origin master
 ```
+✅ GitHub Pages reconstruye automáticamente — sin pasos adicionales.
+</details>
 
-GitHub Pages republica solo; no hay pasos adicionales.
+<details>
+<summary>🧱 <b>Tecnología y arquitectura</b> (clic para desplegar)</summary>
 
----
-
-## 🚫 Regla de información — cero alucinaciones
-
-> **NO se inventan ni agregan especificaciones fuera de la información oficial** de la arquitectura Fortinet Security Fabric y el documento de referencia `Soluciones Fortinet.docx`.
-
-Todo el contenido de las fichas (definiciones, perfiles objetivo, diferenciadores) proviene textualmente de esa fuente. Los perfiles "¿A quién se puede vender?" se derivan de los escenarios mencionados en el propio documento (sucursales, trabajo remoto, multicloud, centros de datos, SOC), sin cifras ni características técnicas inventadas.
+| Aspecto | Decisión |
+|---|---|
+| Formato | **Single-file** — todo en un único `index.html` |
+| Frontend | HTML5 + CSS3 vanilla + JavaScript ES6 |
+| Dependencias | **Cero** — sin framework, sin CDN, funciona offline |
+| Build tools | **Ninguno** — sin Node.js, Webpack ni compilación |
+| Publicación | `publish.ps1` local, excluido del repo vía `.gitignore` |
+</details>
 
 ---
 
@@ -185,21 +286,36 @@ Todo el contenido de las fichas (definiciones, perfiles objetivo, diferenciadore
 
 ```
 Soluciones_Fortinet_Presentacion/
-├── index.html                    # 🎯 SPA completa (single-file, autocontenido)
-├── README.md                     # 📖 Este archivo
-├── .gitignore                    # Excluye publish.ps1 y artefactos del sistema
-├── Compromiso Presentacion.md    # 📋 Especificación del compromiso
-└── Soluciones Fortinet.docx      # 📄 Documento fuente de referencia
+├── 🎯 index.html                    # SPA completa (single-file, autocontenido)
+├── 📖 README.md                     # Este archivo
+├── 🖼️ assets/banner.svg             # Banner hero vectorial
+├── 📋 Compromiso Presentacion.md    # Especificación del compromiso
+├── 📄 Soluciones Fortinet.docx      # Documento fuente de referencia
+└── 🚫 .gitignore                    # Excluye publish.ps1
 ```
 
 ---
 
-## 📜 Licencia y fuentes
+## 🚫 Regla de información — cero alucinaciones
 
-- **Fuente de contenido:** documento interno *“Soluciones Fortinet”* y arquitectura [Fortinet Security Fabric](https://www.fortinet.com/lat).
-- **Marcas:** Fortinet, FortiGate, FortiSASE, ZTNA, FortiEDR, FortiManager, FortiAnalyzer, FortiSwitch, FortiAP, FortiWeb, FortiAppSec Cloud y FortiMail son marcas registradas de Fortinet, Inc. Este proyecto es material de presentación y no está afiliado ni respaldado por Fortinet.
-- Los elementos visuales (iconos SVG, gradientes, tipografía) son originales de este proyecto.
+> [!WARNING]
+> **NO se inventan especificaciones fuera de la información oficial** de la arquitectura Fortinet Security Fabric y del documento de referencia `Soluciones Fortinet.docx`.
+
+✅ Definiciones, perfiles y diferenciadores provienen **textualmente** de la fuente.
+✅ Las regiones COEM **no se inventan**: se asignan manualmente por ficha.
+✅ Sin cifras, precios ni características técnicas inventadas.
 
 ---
 
-<p align="center"><b>🛡️ Fortinet Security Fabric — De productos aislados a una arquitectura integrada</b></p>
+<p align="center">
+  <b>🛡️ Fortinet Security Fabric</b><br>
+  <i>De productos aislados a una arquitectura integrada</i><br>
+  <br>
+  <img src="https://img.shields.io/badge/⏱️%20Pitch-5%20minutos-EE2737?style=for-the-badge" alt="5 minutos">
+  <img src="https://img.shields.io/badge/🧩%20Fichas-6-00A9A5?style=for-the-badge" alt="6 fichas">
+  <img src="https://img.shields.io/badge/✅%20Estado-En%20línea-brightgreen?style=for-the-badge" alt="En línea">
+</p>
+
+<p align="center">
+  <sub>Marcas: Fortinet, FortiGate, FortiSASE, ZTNA, FortiEDR, FortiManager, FortiAnalyzer, FortiSwitch, FortiAP, FortiWeb, FortiAppSec Cloud y FortiMail son marcas de Fortinet, Inc. · Material de presentación sin afiliación oficial.</sub>
+</p>
