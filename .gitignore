@@ -4,3 +4,6 @@ publish.ps1
 # Artefactos del sistema
 Thumbs.db
 .DS_Store
+
+# Previews locales de assets
+assets/_preview.png
