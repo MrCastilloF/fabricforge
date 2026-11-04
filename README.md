@@ -1,11 +1,11 @@
 <div align="center">
 
-<img src="assets/hero.png" alt="FortiSell Suite — Habilitador Comercial Fortinet · COEM" width="100%"/>
+<img src="assets/hero.png" alt="FabricForge — Habilitador Comercial Fortinet · COEM" width="100%"/>
 
-# FORTISELL SUITE
-### Habilitador comercial · Fortinet Security Fabric · COEM
+# FABRICFORGE
+### *Donde el Security Fabric se convierte en negocio* · Fortinet portfolio × COEM
 
-**Doce líneas de solución para vender en 5 minutos — con temporizador guiado, cobertura COEM editable y exportación pre-socialización. Un solo `index.html`.**
+**Doce líneas de solución para cerrar la conversación comercial en 5 minutos — temporizador guiado, cobertura COEM editable, exportación pre-socialización y PDF de reporte. Un solo `index.html`.**
 
 <br/>
 
