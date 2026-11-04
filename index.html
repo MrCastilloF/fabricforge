@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FortiSell Suite — Habilitador Comercial Fortinet · COEM</title>
+<title>FabricForge — Donde el Security Fabric se convierte en negocio</title>
 <meta name="description" content="Suite comercial de portafolio Fortinet Security Fabric: 12 líneas de solución, modo pitch con temporizador, cobertura COEM y exportación para pre-socialización.">
 <style>
 :root{
@@ -22,8 +22,8 @@ a{color:var(--navy)}
 .topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
 .topbar-in{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{display:flex;align-items:center;gap:12px}
-.brand-mark{width:40px;height:40px;border-radius:6px;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:17px;display:grid;place-items:center}
-.brand b{font-size:16px;color:var(--navy);display:block;letter-spacing:.2px}
+.brand-mark{width:40px;height:40px;border-radius:6px;background:var(--navy);color:#fff;font-family:var(--serif);font-weight:700;font-size:17px;display:grid;place-items:center;letter-spacing:.5px;border-bottom:3px solid var(--red)}
+.brand b{font-size:16px;color:var(--navy);display:block;letter-spacing:.2px;font-family:var(--serif)}
 .brand small{font-size:11px;color:var(--mut);display:block}
 .menu{display:flex;gap:22px;font-size:13.5px;font-weight:600}
 .menu a{text-decoration:none;color:var(--ink);padding:6px 2px;border-bottom:2px solid transparent}
@@ -97,8 +97,8 @@ button.primary:hover{background:var(--redd);color:#fff}
 
 <nav class="topbar no-print">
   <div class="wrap topbar-in">
-    <div class="brand"><span class="brand-mark">FS</span>
-      <div><b>FortiSell Suite</b><small>Habilitador comercial · Fortinet Security Fabric · COEM</small></div>
+    <div class="brand"><span class="brand-mark">FF</span>
+      <div><b>FabricForge</b><small>Donde el Security Fabric se convierte en negocio · COEM</small></div>
     </div>
     <div class="menu">
       <a href="#soluciones">Soluciones</a><a href="#pitch">Modo Pitch</a><a href="#exportar">Exportar</a><a href="version-neon.html" class="alt">Versión neón ↗</a>
@@ -108,7 +108,7 @@ button.primary:hover{background:var(--redd);color:#fff}
 
 <header class="masthead">
   <div class="wrap">
-    <p class="doc-kicker">Documento de habilitación comercial — Edición 2026</p>
+    <p class="doc-kicker">FabricForge — Edición 2026 · Habilitación comercial</p>
     <h1>Portafolio Fortinet que el cliente está buscando,<br>organizado para venderse en 5 minutos.</h1>
     <p class="lead">Doce líneas de solución sobre <b>Fortinet Security Fabric</b>: de productos aislados a una arquitectura integrada de conectividad, protección y operación. Cada ficha responde qué hace, a quién se vende, cuál es su diferenciador y en qué región COEM se posiciona.</p>
     <div class="statline">
@@ -139,8 +139,8 @@ button.primary:hover{background:var(--redd);color:#fff}
 
 <footer class="foot">
   <div class="wrap">
-    <p><b>FortiSell Suite</b> — herramienta interna de habilitación comercial. Núcleo del portafolio basado en el documento «Soluciones Fortinet» (fortinet.com/lat); líneas adicionales corresponden al portafolio público de Fortinet. Las regiones COEM se asignan en vivo por el presentador: el valor por defecto «Por definir» no es un dato, es una disciplina.</p>
-    <p class="dim">Fortinet® y Fortinet Security Fabric® son marcas de Fortinet, Inc. Este material no es documentación oficial del fabricante.</p>
+    <p><b>FabricForge</b> — suite interna de habilitación comercial. Núcleo del portafolio basado en el documento «Soluciones Fortinet» (fortinet.com/lat); líneas adicionales corresponden al portafolio público de Fortinet. Las regiones COEM se asignan en vivo por el presentador: el valor por defecto «Por definir» no es un dato, es una disciplina.</p>
+    <p class="dim">Fortinet® y Fortinet Security Fabric® son marcas de Fortinet, Inc. FabricForge es una herramienta propia de habilitación; este material no es documentación oficial del fabricante.</p>
   </div>
 </footer>
 
@@ -288,7 +288,7 @@ paint();
 /* Exportador de pre-socialización: copia, .md e impresión corporativa */
 function summaryMD(){
   const L=[];
-  L.push("# FortiSell Suite — Resumen Ejecutivo de Portafolio");
+  L.push("# FabricForge — Resumen Ejecutivo de Portafolio");
   L.push("");
   L.push("> De productos aislados a una arquitectura integrada de conectividad, protección y operación. Núcleo del portafolio según el documento «Soluciones Fortinet» (fortinet.com/lat); líneas del portafolio público de Fortinet se marcan como [P].");
   L.push("");
@@ -322,7 +322,7 @@ function toast(msg){const el=$("#toast");el.textContent=msg;el.classList.add("sh
   });
   $("#btnMd").addEventListener("click",()=>{
     const url=URL.createObjectURL(new Blob([summaryMD()],{type:"text/markdown;charset=utf-8"}));
-    const a=document.createElement("a");a.href=url;a.download="FortiSell-Suite-Resumen.md";
+    const a=document.createElement("a");a.href=url;a.download="FabricForge-Resumen-Ejecutivo.md";
     document.body.appendChild(a);a.click();
     setTimeout(()=>{URL.revokeObjectURL(url);a.remove();},500);
     toast("Markdown descargado");
