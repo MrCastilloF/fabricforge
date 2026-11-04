@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fortinet Security Fabric — Pitch Deck Ejecutivo</title>
+<meta name="description" content="Dashboard interactivo de soluciones Fortinet para exposición ejecutiva de 5 minutos.">
+<style>
+  :root{
+    --red:#EE2737;
+    --cyan:#00E5FF;
+    --emerald:#2CE5A5;
+    --bg:#0A0E17;
+    --bg2:#101624;
+    --card:#141B2D;
+    --card2:#1A2338;
+    --txt:#E8ECF4;
+    --muted:#93A0B8;
+    --border:rgba(255,255,255,.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Roboto","Segoe UI",sans-serif;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(900px 500px at 85% -10%, rgba(238,39,55,.14), transparent 60%),
+      radial-gradient(700px 500px at -10% 30%, rgba(0,229,255,.08), transparent 60%),
+      radial-gradient(800px 600px at 50% 120%, rgba(44,229,165,.07), transparent 60%);
+  }
+  .wrap{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:28px 24px 80px}
+
+  /* ===== Header ===== */
+  header{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;margin-bottom:8px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand .logo{
+    width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--red),#B71C26);
+    box-shadow:0 8px 28px rgba(238,39,55,.4);flex-shrink:0;
+  }
+  .brand h1{font-size:1.35rem;font-weight:800;letter-spacing:-.02em}
+  .brand h1 span{color:var(--red)}
+  .brand p{font-size:.8rem;color:var(--muted);margin-top:3px;letter-spacing:.04em;text-transform:uppercase}
+
+  /* ===== Toolbar ===== */
+  .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .btn{
+    border:1px solid var(--border);background:var(--card);color:var(--txt);
+    padding:10px 16px;border-radius:10px;font-size:.85rem;font-weight:600;cursor:pointer;
+    display:inline-flex;align-items:center;gap:8px;transition:.2s;font-family:inherit;
+  }
+  .btn:hover{background:var(--card2);border-color:rgba(255,255,255,.18);transform:translateY(-1px)}
+  .btn:active{transform:translateY(0)}
+  .btn svg{width:15px;height:15px}
+  .btn.primary{background:var(--red);border-color:var(--red);box-shadow:0 6px 20px rgba(238,39,55,.35)}
+  .btn.primary:hover{background:#ff3546}
+  .btn.ghost-cyan{border-color:rgba(0,229,255,.35);color:var(--cyan)}
+  .btn.ghost-cyan:hover{background:rgba(0,229,255,.08)}
+  .btn.ghost-em{border-color:rgba(44,229,165,.35);color:var(--emerald)}
+  .btn.ghost-em:hover{background:rgba(44,229,165,.08)}
+
+  /* ===== Hero ===== */
+  .hero{
+    margin-top:22px;padding:26px 28px;border-radius:18px;
+    background:linear-gradient(120deg,rgba(20,27,45,.92),rgba(16,22,36,.75));
+    border:1px solid var(--border);position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;top:0;left:0;height:3px;width:100%;
+    background:linear-gradient(90deg,var(--red),var(--cyan),var(--emerald));
+  }
+  .hero h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+  .hero h2 em{font-style:normal;color:var(--cyan)}
+  .hero p{color:var(--muted);font-size:.92rem;line-height:1.6;max-width:900px}
+  .fabric-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .fabric-tag{
+    font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+    padding:6px 12px;border-radius:99px;border:1px solid var(--border);color:var(--muted);
+    background:rgba(255,255,255,.03);
+  }
+  .fabric-tag b{color:var(--emerald);font-weight:700}
+
+  /* ===== Pitch Mode ===== */
+  .pitch{
+    margin-top:22px;border-radius:18px;border:1px solid rgba(238,39,55,.35);
+    background:linear-gradient(135deg,rgba(238,39,55,.10),rgba(16,22,36,.9));
+    padding:20px 24px;display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;
+  }
+  .pitch-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .clock{
+    font-size:3rem;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;
+    color:var(--txt);line-height:1;text-shadow:0 0 30px rgba(238,39,55,.35);
+  }
+  .clock.warn{color:var(--red);animation:pulse 1s infinite}
+  @keyframes pulse{50%{opacity:.55}}
+  .pitch-meta .label{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .pitch-meta .now{font-size:1rem;font-weight:700;color:var(--red);margin-top:4px}
+  .pitch-meta .sub{font-size:.78rem;color:var(--muted);margin-top:2px}
+  .progress{width:min(360px,80vw);height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:10px}
+  .progress i{display:block;height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,var(--red),var(--cyan));transition:width .3s linear}
+  .pitch-controls{display:flex;gap:10px;flex-wrap:wrap}
+
+  /* ===== Grid de fichas ===== */
+  .grid-title{display:flex;align-items:baseline;justify-content:space-between;margin:34px 0 16px;flex-wrap:wrap;gap:8px}
+  .grid-title h3{font-size:1.05rem;font-weight:700;letter-spacing:.02em}
+  .grid-title span{font-size:.78rem;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:18px}
+
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:18px;
+    padding:24px;position:relative;overflow:hidden;
+    transition:transform .28s cubic-bezier(.2,.8,.2,1),border-color .28s,box-shadow .28s;
+    display:flex;flex-direction:column;
+  }
+  .card::before{
+    content:"";position:absolute;inset:0;opacity:0;transition:.3s;pointer-events:none;
+    background:radial-gradient(500px 200px at 20% 0%,rgba(0,229,255,.10),transparent 70%);
+  }
+  .card:hover{transform:translateY(-6px);border-color:rgba(0,229,255,.35);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+  .card:hover::before{opacity:1}
+  .card.active{
+    border-color:var(--red);
+    box-shadow:0 0 0 1px var(--red),0 18px 50px rgba(238,39,55,.28);
+    transform:translateY(-6px);
+  }
+  .card.active::before{opacity:1;background:radial-gradient(500px 200px at 20% 0%,rgba(238,39,55,.16),transparent 70%)}
+  .card.active .num{background:var(--red);color:#fff;border-color:var(--red)}
+
+  /* Ficha estrella — Seguridad perimetral */
+  .card.featured{
+    border-color:rgba(238,39,55,.55);
+    background:linear-gradient(165deg,rgba(238,39,55,.14),var(--card) 55%);
+  }
+  .card.featured::after{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--red),rgba(0,229,255,.7),transparent);
+  }
+  .card.featured .icon{background:rgba(238,39,55,.14);border-color:rgba(238,39,55,.45)}
+  .card.featured .icon svg{stroke:var(--red)}
+  .card.featured:hover{border-color:var(--red);box-shadow:0 22px 55px rgba(238,39,55,.3)}
+  .star-badge{
+    display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;
+    font-size:.66rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;
+    color:#fff;background:linear-gradient(90deg,var(--red),#FF5A66);
+    padding:5px 11px;border-radius:99px;box-shadow:0 4px 14px rgba(238,39,55,.45);
+  }
+
+  .card-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+  .icon{
+    width:46px;height:46px;border-radius:12px;flex-shrink:0;display:grid;place-items:center;
+    background:rgba(0,229,255,.10);border:1px solid rgba(0,229,255,.25);
+  }
+  .icon svg{width:24px;height:24px;stroke:var(--cyan);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .card-head .titles{flex:1;min-width:0}
+  .num{
+    display:inline-grid;place-items:center;width:22px;height:22px;border-radius:7px;
+    font-size:.7rem;font-weight:800;background:rgba(255,255,255,.07);
+    border:1px solid var(--border);color:var(--muted);float:right;
+  }
+  .card-head h4{font-size:1.02rem;font-weight:800;letter-spacing:-.01em;line-height:1.3}
+  .card-head .area{font-size:.7rem;color:var(--emerald);text-transform:uppercase;letter-spacing:.1em;margin-top:5px;font-weight:700}
+
+  .qa{margin-bottom:14px}
+  .qa .q{
+    font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--cyan);display:flex;align-items:center;gap:7px;margin-bottom:6px;
+  }
+  .qa .q::before{content:"";width:14px;height:2px;background:var(--red);border-radius:2px;flex-shrink:0}
+  .qa .a{font-size:.86rem;line-height:1.6;color:#C9D2E4}
+  .qa.diff .q{color:var(--emerald)}
+
+  .regions{margin-top:auto;padding-top:14px;border-top:1px dashed var(--border)}
+  .regions .q{
+    font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:9px;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{
+    font-size:.72rem;font-weight:600;padding:5px 11px;border-radius:99px;cursor:pointer;
+    border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--muted);
+    transition:.18s;user-select:none;font-family:inherit;
+  }
+  .chip:hover{border-color:rgba(44,229,165,.5);color:var(--txt)}
+  .chip.on{background:rgba(44,229,165,.14);border-color:var(--emerald);color:var(--emerald);font-weight:700}
+  .chip.on::before{content:"✓ ";font-weight:800}
+
+  /* ===== Toast ===== */
+  .toast{
+    position:fixed;bottom:26px;left:50%;transform:translate(-50%,80px);
+    background:var(--card2);border:1px solid var(--emerald);color:var(--emerald);
+    padding:13px 22px;border-radius:12px;font-size:.88rem;font-weight:600;
+    box-shadow:0 14px 40px rgba(0,0,0,.55);transition:.35s cubic-bezier(.2,.8,.2,1);
+    z-index:99;opacity:0;pointer-events:none;
+  }
+  .toast.show{transform:translate(-50%,0);opacity:1}
+
+  footer{margin-top:44px;text-align:center;font-size:.75rem;color:var(--muted);line-height:1.7}
+  footer b{color:var(--red)}
+
+  @media (max-width:640px){
+    .clock{font-size:2.3rem}
+    .wrap{padding:20px 14px 60px}
+    .hero{padding:20px}
+    .card{padding:18px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Fortinet <span>Security Fabric</span></h1>
+        <p>Pitch Deck Ejecutivo · 5 minutos</p>
+      </div>
+    </div>
+    <div class="toolbar">
+      <button class="btn ghost-cyan" id="btnCopy" title="Copiar texto plano al portapapeles">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copiar Resumen Ejecutivo
+      </button>
+      <button class="btn ghost-em" id="btnDownload" title="Descargar contenido en Markdown">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Descargar (.md)
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>De productos aislados a una <em>arquitectura integrada</em></h2>
+    <p>Fortinet ofrece soluciones que integran redes, ciberseguridad y operaciones de seguridad para proteger sucursales, centros de datos, usuarios y entornos cloud. Su propuesta se articula alrededor del <strong>Fortinet Security Fabric</strong>, que conecta los componentes para compartir visibilidad y coordinar la protección: infraestructura, usuarios/aplicaciones y operación.</p>
+    <div class="fabric-row">
+      <span class="fabric-tag"><b>Infraestructura:</b> FortiGate · FortiSwitch · FortiAP</span>
+      <span class="fabric-tag"><b>Usuarios y apps:</b> SASE · ZTNA · EDR · Mail · Web</span>
+      <span class="fabric-tag"><b>Operación:</b> Manager · Analyzer · SIEM · SOAR</span>
+    </div>
+  </section>
+
+  <!-- PITCH MODE -->
+  <section class="pitch" aria-label="Modo temporizador de exposición">
+    <div class="pitch-left">
+      <div class="clock" id="clock">05:00</div>
+      <div class="pitch-meta">
+        <div class="label">Pitch Mode · 5 min</div>
+        <div class="now" id="nowCard">Listo para iniciar</div>
+        <div class="sub" id="subInfo">6 soluciones · ~50 s por ficha</div>
+        <div class="progress"><i id="progressBar"></i></div>
+      </div>
+    </div>
+    <div class="pitch-controls">
+      <button class="btn primary" id="btnStart">
+        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        Iniciar
+      </button>
+      <button class="btn" id="btnPause">
+        <svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        Pausar
+      </button>
+      <button class="btn" id="btnReset">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+        Reiniciar
+      </button>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <div class="grid-title">
+    <h3>Soluciones clave Fortinet</h3>
+    <span>6 fichas de alto valor · clic en las regiones COEM para asignar cobertura</span>
+  </div>
+  <main class="grid" id="grid"><!-- fichas renderizadas por JS --></main>
+
+  <footer>
+    Fuente: documento de referencia <b>“Soluciones Fortinet”</b> y arquitectura Fortinet Security Fabric · sin especificaciones fuera de la fuente.<br>
+    Desplegable en GitHub Pages · archivo único <b>index.html</b> · sin dependencias de compilación.
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+"use strict";
+
+/* ============================================================
+   DATOS — estrictamente derivados del documento fuente
+   ============================================================ */
+const ICONS = {
+  firewall:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="4" y1="10" x2="20" y2="10"/><line x1="4" y1="14.5" x2="20" y2="14.5"/><line x1="12" y1="4.5" x2="12" y2="10"/><line x1="8" y1="14.5" x2="8" y2="19.5"/><line x1="16" y1="14.5" x2="16" y2="19.5"/>',
+  cloud:'<path d="M17.5 19a4.5 4.5 0 0 0 .5-8.97A6 6 0 0 0 6.34 9.5 4 4 0 0 0 7 19h10.5z"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M9 15l3 3 3-3"/>',
+  shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="8.5 11.5 11 14 15.5 9"/>',
+  console:'<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><polyline points="6 10 9 10 9 7"/><line x1="13" y1="12" x2="18" y2="12"/>',
+  network:'<rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-2h14v2"/>',
+  mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2.5 6 12 13 21.5 6"/><path d="M16 17l2.5 2.5L21 17"/>'
+};
+
+const SOLUTIONS = [
+  {
+    name:"FortiGate (NGFW) & Secure SD-WAN",
+    area:"Seguridad perimetral y conectividad",
+    icon:"firewall",
+    what:"Inspección y protección del tráfico en redes empresariales, centros de datos y entornos cloud. Conectividad entre sedes y nube integrada con funciones de seguridad.",
+    who:"Empresas con sucursales distribuidas, centros de datos y entornos cloud que necesitan inspección de tráfico y conectividad de sedes.",
+    diff:"Conectividad y seguridad combinadas en una sola plataforma con políticas comunes, en lugar de comprar firewalls y SD-WAN como productos aislados."
+  },
+  {
+    name:"FortiSASE & ZTNA",
+    area:"Acceso seguro y trabajo híbrido",
+    icon:"cloud",
+    what:"Protección de usuarios remotos y acceso a aplicaciones según la verificación del usuario y del dispositivo, independientemente de su ubicación.",
+    who:"Organizaciones con trabajo remoto o híbrido y usuarios distribuidos que acceden a aplicaciones desde cualquier lugar.",
+    diff:"Extiende la seguridad más allá del perímetro tradicional: verifica usuario y dispositivo antes de conceder acceso, sin depender de la ubicación."
+  },
+  {
+    name:"FortiEDR",
+    area:"Protección de endpoints",
+    icon:"shield",
+    what:"Prevención, detección y respuesta ante amenazas en equipos y cargas de trabajo.",
+    who:"Organizaciones que necesitan proteger sus equipos y cargas de trabajo más allá del perímetro de red.",
+    diff:"Prevención, detección y respuesta automatizada en el endpoint, integrada con la arquitectura del Security Fabric frente a silos aislados."
+  },
+  {
+    name:"FortiManager & FortiAnalyzer",
+    area:"Gestión y operaciones de seguridad (SOC)",
+    icon:"console",
+    what:"Administración centralizada, análisis, correlación de eventos y automatización de la respuesta a incidentes.",
+    who:"Equipos con requerimientos de operaciones SOC que exigen visibilidad centralizada y administración de la infraestructura de seguridad.",
+    diff:"Visibilidad centralizada y respuesta automatizada sobre toda la plataforma; aporta también servicios de SOC administrado."
+  },
+  {
+    name:"FortiSwitch & FortiAP",
+    area:"LAN y Wi-Fi",
+    icon:"network",
+    what:"Conectividad cableada e inalámbrica integrada con la arquitectura de seguridad.",
+    who:"Oficinas y sucursales que requieren redes LAN cableadas y Wi-Fi con gestión integrada.",
+    diff:"La infraestructura de red se combina con la seguridad con políticas comunes, dentro del Security Fabric."
+  },
+  {
+    name:"FortiWeb, FortiAppSec Cloud & FortiMail",
+    area:"Aplicaciones y correo",
+    icon:"mail",
+    what:"Protección de aplicaciones web, API y correo electrónico frente a ataques y amenazas.",
+    who:"Organizaciones con aplicaciones web/API expuestas y correo corporativo como vector de amenaza.",
+    diff:"Protección de aplicaciones y correo integrada con el resto de la plataforma: prevención y visibilidad extendidas a usuarios y aplicaciones."
+  }
+];
+
+const REGIONS = ["Región Central","Región Andina","Región Norte","Región Sur"];
+const TOTAL_SECONDS = 300;
+
+/* Estado de cobertura COEM por ficha (asignada por el presentador) */
+const coverage = SOLUTIONS.map(() => new Set());
+
+/* ============================================================
+   RENDER DE FICHAS
+   ============================================================ */
+const grid = document.getElementById("grid");
+SOLUTIONS.forEach((s,i)=>{
+  const card = document.createElement("article");
+  card.className = "card" + (i===0 ? " featured" : "");
+  card.id = "card-"+i;
+  card.innerHTML = `
+    ${i===0 ? '<div class="star-badge">★ Seguridad perimetral · Solución estrella</div>' : ''}
+    <div class="card-head">
+      <div class="icon"><svg viewBox="0 0 24 24">${ICONS[s.icon]}</svg></div>
+      <div class="titles">
+        <span class="num">${i+1}</span>
+        <h4>${s.name}</h4>
+        <div class="area">${s.area}</div>
+      </div>
+    </div>
+    <div class="qa"><div class="q">¿Qué hace?</div><div class="a">${s.what}</div></div>
+    <div class="qa"><div class="q">¿A quién se puede vender?</div><div class="a">${s.who}</div></div>
+    <div class="qa diff"><div class="q">¿Cuál es su diferenciador?</div><div class="a">${s.diff}</div></div>
+    <div class="regions">
+      <div class="q">¿En qué región/regiones de COEM posicionar?</div>
+      <div class="chips">${REGIONS.map(r=>`<button class="chip" data-i="${i}" data-r="${r}" type="button">${r}</button>`).join("")}</div>
+    </div>`;
+  grid.appendChild(card);
+});
+
+grid.addEventListener("click", e=>{
+  const chip = e.target.closest(".chip");
+  if(!chip) return;
+  const i = +chip.dataset.i, r = chip.dataset.r;
+  if(coverage[i].has(r)){ coverage[i].delete(r); chip.classList.remove("on"); }
+  else { coverage[i].add(r); chip.classList.add("on"); chip.classList.add("pop"); }
+});
+
+/* ============================================================
+   PITCH MODE — temporizador 5 min con rotación automática
+   ============================================================ */
+let remaining = TOTAL_SECONDS, running = false, tick = null, activeCard = -1;
+const clock = document.getElementById("clock");
+const nowCard = document.getElementById("nowCard");
+const progressBar = document.getElementById("progressBar");
+
+function fmt(s){ const m = Math.floor(s/60), r = s%60; return String(m).padStart(2,"0")+":"+String(r).padStart(2,"0"); }
+
+function highlight(){
+  const elapsed = TOTAL_SECONDS - remaining;
+  const per = TOTAL_SECONDS / SOLUTIONS.length;
+  const idx = Math.min(SOLUTIONS.length-1, Math.floor(elapsed / per));
+  if(idx !== activeCard){
+    document.querySelectorAll(".card.active").forEach(c=>c.classList.remove("active"));
+    const el = document.getElementById("card-"+idx);
+    if(el) el.classList.add("active");
+    activeCard = idx;
+    nowCard.textContent = `Ficha ${idx+1} de ${SOLUTIONS.length} — ${SOLUTIONS[idx].name}`;
+  }
+}
+
+function render(){
+  clock.textContent = fmt(remaining);
+  clock.classList.toggle("warn", running && remaining <= 60);
+  progressBar.style.width = ((TOTAL_SECONDS-remaining)/TOTAL_SECONDS*100)+"%";
+}
+
+function start(){
+  if(running || remaining<=0) return;
+  running = true;
+  tick = setInterval(()=>{
+    remaining--;
+    if(remaining<=0){
+      remaining = 0; pause();
+      nowCard.textContent = "¡Tiempo! Exposición completada";
+      document.querySelectorAll(".card.active").forEach(c=>c.classList.remove("active"));
+      showToast("⏱ Tiempo completado — 5 minutos");
+    }
+    highlight(); render();
+  },1000);
+  highlight(); render();
+}
+function pause(){ running=false; clearInterval(tick); tick=null; render(); }
+function reset(){
+  pause(); remaining = TOTAL_SECONDS; activeCard = -1;
+  document.querySelectorAll(".card.active").forEach(c=>c.classList.remove("active"));
+  nowCard.textContent = "Listo para iniciar";
+  render();
+}
+document.getElementById("btnStart").onclick = start;
+document.getElementById("btnPause").onclick = pause;
+document.getElementById("btnReset").onclick = reset;
+render();
+
+/* ============================================================
+   EXPORTACIÓN
+   ============================================================ */
+function summaryText(){
+  let t = "SOLUCIONES FORTINET — RESUMEN EJECUTIVO (Security Fabric)\n";
+  t += "==========================================================\n\n";
+  t += "Idea central: pasar de productos aislados a una arquitectura integrada de conectividad, protección y operación (Fortinet Security Fabric), que combina infraestructura, usuarios/aplicaciones y operación.\n\n";
+  SOLUTIONS.forEach((s,i)=>{
+    const regs = coverage[i].size ? [...coverage[i]].join(", ") : "Por asignar";
+    t += `${i+1}. ${s.name}${i===0?" (SOLUCIÓN ESTRELLA)":""} — ${s.area}\n`;
+    t += `   ¿Qué hace?: ${s.what}\n`;
+    t += `   ¿A quién se puede vender?: ${s.who}\n`;
+    t += `   ¿Cuál es su diferenciador?: ${s.diff}\n`;
+    t += `   Región COEM: ${regs}\n\n`;
+  });
+  t += "Fuentes: documento de referencia 'Soluciones Fortinet' y arquitectura Fortinet Security Fabric.\n";
+  return t;
+}
+
+function markdownDoc(){
+  let m = "# Soluciones Fortinet — Pitch Deck Ejecutivo\n\n";
+  m += "> Exposición ejecutiva de 5 minutos · Fortinet Security Fabric\n\n";
+  m += "**Idea central:** pasar de productos aislados a una arquitectura integrada de conectividad, protección y operación, que conecta los componentes para compartir visibilidad y coordinar la protección.\n\n";
+  m += "| Ecosistema | Soluciones |\n|---|---|\n";
+  m += "| Seguridad perimetral y conectividad | FortiGate (NGFW), Secure SD-WAN |\n";
+  m += "| LAN y Wi-Fi | FortiSwitch, FortiAP |\n";
+  m += "| Acceso seguro y trabajo híbrido | FortiSASE, ZTNA |\n";
+  m += "| Protección de endpoints y aplicaciones | FortiEDR, FortiWeb, FortiAppSec Cloud, FortiMail |\n";
+  m += "| Gestión y operaciones (SOC) | FortiManager, FortiAnalyzer, FortiSIEM, FortiSOAR |\n\n";
+  SOLUTIONS.forEach((s,i)=>{
+    const regs = coverage[i].size ? [...coverage[i]].map(r=>`**${r}**`).join(" · ") : "_Por asignar_";
+    m += `---\n\n## ${i+1}. ${s.name}${i===0?" ⭐ Solución estrella":""}\n\n**Área:** ${s.area}\n\n`;
+    m += `### ¿Qué hace?\n${s.what}\n\n`;
+    m += `### ¿A quién se puede vender?\n${s.who}\n\n`;
+    m += `### ¿Cuál es su diferenciador?\n${s.diff}\n\n`;
+    m += `### ¿En qué región/regiones de COEM posicionar?\n${regs}\n\n`;
+  });
+  m += "---\n\n_Fuente: documento de referencia “Soluciones Fortinet” y arquitectura Fortinet Security Fabric. Sin especificaciones fuera de la fuente._\n";
+  return m;
+}
+
+function showToast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(t._h);
+  t._h = setTimeout(()=>t.classList.remove("show"), 2600);
+}
+
+document.getElementById("btnCopy").onclick = async ()=>{
+  const text = summaryText();
+  try{
+    await navigator.clipboard.writeText(text);
+    showToast("✓ Resumen ejecutivo copiado al portapapeles");
+  }catch(err){
+    const ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    document.execCommand("copy"); ta.remove();
+    showToast("✓ Resumen ejecutivo copiado al portapapeles");
+  }
+};
+
+document.getElementById("btnDownload").onclick = ()=>{
+  const blob = new Blob([markdownDoc()], {type:"text/markdown;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "Soluciones_Fortinet_Resumen.md";
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(url);
+  showToast("⬇ Archivo Soluciones_Fortinet_Resumen.md descargado");
+};
+</script>
+</body>
+</html>
